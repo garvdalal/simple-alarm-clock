@@ -1,0 +1,16 @@
+import time
+import winsound  # Only works on Windows
+
+def alarm_clock(alarm_time):
+    while True:
+        current_time = time.strftime("%H:%M")
+        print(f"Current Time: {current_time}", end="\r")
+        if current_time == alarm_time:
+            print("Time to wake up!")
+            winsound.Beep(1000, 1000)  # Beep sound for 1 second
+            break
+        time.sleep(1)
+
+if __name__ == "__main__":
+    alarm_time = input("Set the alarm time (HH:MM): ")
+    alarm_clock(alarm_time)
